@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+ {% for i in home %}
+     {% csrf_token %}
+    <a href="" style="color: black">{{ i.name }}</a>
+    <a href="" style="color: black">{{ i.descriptions }}</a>
+{% endfor %}
+</body>
+</html>
