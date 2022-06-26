@@ -95,8 +95,7 @@ DATABASES = {
     }
 }
 
-db_from_env = dj_database_url.config()
-DATABASES['default'].update(db_from_env)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -141,4 +140,4 @@ STATIC_URL = '/static/'
 django_heroku.settings(locals())
 DISABLE_COLLECTSTATIC=1
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-DATABASES['default'].update(dj_database_url.config(conn_max_age=500))
+
