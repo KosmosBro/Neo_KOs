@@ -135,20 +135,9 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [BASE_DIR / 'main/static/']
-# STATICFILES_DIRS = [str(BASE_DIR) + '/static/'] если используется os
-STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'main/static/'
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-)
-
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'main/media'
-
-ADMIN_MEDIA_PREFIX = 'static/admin/'
 django_heroku.settings(locals())
+DISABLE_COLLECTSTATIC=1
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
