@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn neokos.wsgi --log-file=-
+web: gunicorn neobis.wsgi --log-file=-
