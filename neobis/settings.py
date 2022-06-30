@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['neokos.herokuapp.com']
+ALLOWED_HOSTS = ['neokos.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
@@ -84,17 +84,19 @@ WSGI_APPLICATION = 'neobis.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DATABASE_NAME'),
-        'USER': config('DATABASE_USER_NAME'),
-        'PASSWORD': config('DATABASE_PASSWORD'),
-        'HOST': config('DATABASE_HOST'),
-        'PORT': config('DATABASE_PORT')
+
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'yourdatabasename.db'),
 
 
     }
 }
-
+# 'ENGINE': 'django.db.backends.postgresql',
+# 'NAME': config('DATABASE_NAME'),
+# 'USER': config('DATABASE_USER_NAME'),
+# 'PASSWORD': config('DATABASE_PASSWORD'),
+# 'HOST': config('DATABASE_HOST'),
+# 'PORT': config('DATABASE_PORT')
 
 
 # Password validation
@@ -137,7 +139,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = '/static/'
 
-django_heroku.settings(locals())
-DISABLE_COLLECTSTATIC=1
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
